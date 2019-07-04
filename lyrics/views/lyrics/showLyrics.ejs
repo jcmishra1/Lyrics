@@ -1,0 +1,48 @@
+<% include ../partials/header%>
+
+<div class="container bg-info mt-1">
+        <div class="bg-light border border-primary px-2 py-2 mt-1">
+                <div>
+                    <span class="font-weight-normal badge font-italic">written by 
+                        <%=lyrics.writtenBy.username%> on <%=lyrics.created.toDateString()%></span>
+                <div class="mt-1">
+                    <h3 class="w-50 mx-auto mb-0 text-center font-italic">" <%=lyrics.title%> "</h3>
+                    <hr class=" my-0 ">
+                    <p class="bg-white"><pre><%-lyrics.lyrics%></pre></p>
+                    <%if(currentUser&&currentUser._id.equals(lyrics.writtenBy.id)){%>
+                        <a class="btn btn-sm btn-outline-warning" href="/blogs/<%=lyrics._id%>/edit">EDIT</a>
+                        <form class="d-inline" method="POST" action="/blogs/<%=lyrics._id%>?_method=DELETE">
+                                <button class="btn btn-sm btn-outline-danger">DELETE</button>
+                        </form>
+                        <%}%>
+                </div>
+                </div><br>
+                <span>Comments<hr class="mt-0"></span>
+                <div>
+                <% lyrics.comments.forEach(comment=>{%>
+                    <span class="font-weight-normal badge font-italic">written by 
+                        <%=comment.writtenBy.username %> on <%=comment.created.toDateString()%></span>
+                <div class="mt-0 bg-white">
+                    <pre class="mb-0"><%-comment.body%></pre>
+                    <%if(currentUser&&currentUser._id.equals(comment.writtenBy.id)){%>
+                        <a class="btn badge btn-outline-warning" href="/blogs/<%=lyrics._id%>/comments/<%=comment._id%>/edit">edit</a>
+                        <form class="d-inline-flex" method="POST" action="/blogs/<%=lyrics._id%>/comments/<%=comment._id%>?_method=DELETE">
+                                <button class="btn badge btn-outline-danger">DELETE</button>
+                        </form>
+                        <%}%>
+                </div>
+          
+            <% })%>   
+                </div><br> 
+        <a class="btn badge btn-outline-secondary" href="/blogs/<%=lyrics._id%>/comments/new">new comment</a>
+        </div>
+</div>
+        
+
+
+
+<p></p>
+
+<% include ../partials/footer%>
+
+

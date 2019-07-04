@@ -1,0 +1,30 @@
+
+       <%if((currentUser!==undefined)&&(currentUser.username===lyrics.writtenBy.username)){%>
+<a href="/blogs/<%=lyrics._id%>/edit">EDIT</a><br>
+
+<form method="POST" action="/blogs/<%=lyrics._id%>?_method=DELETE">
+        <button>DELETE</button>
+</form>
+<%}%>
+btn btn-outline-primary btn-sm
+
+<form action="/register" method="post">
+    <input type="text" placeholder="username reg" name="username">
+    <input type="password" placeholder="password" name="password">
+    <button>submit</button>
+</form>
+
+ <textarea class="w-50" style="height:400px" name="ly[lyrics]"><span class="d-none">&lt;pre&gt; </span> <span>&lt;/pre&gt;</span></textarea><br>
+                <textarea class="w-50" style="height:400px" name="ly[lyrics]">&lt;pre&gt; &lt;/pre&gt;</textarea><br>
+
+ <span class="d-none">&lt;pre&gt; 
+                
+                        </span> <span class="d-none">&lt;/pre&gt;</span>
+
+
+                        <div name="ly[lyrics]">&lt;pre&gt; 
+                <div class="w-50 bg-white border border-secondary" 
+                style="height:400px" contenteditable="true">
+                </div>
+                    &lt;/pre&gt;
+                </div><br>

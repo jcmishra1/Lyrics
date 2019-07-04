@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>blog app</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            *{
+                margin : 0px;
+                padding : 0px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <nav class="navbar navbar-expand-md bg-secondary ">
+        <a class="navbar-brand text-white" href="/">LYRICS</a>
+        <div class="collapse navbar-collapse justify-content-end  ">
+            <ul class="nav navbar-nav">
+            <%if(!currentUser){%>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/login">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/register">sign up</a>
+                    </li>
+                    <%}else{%>
+                    <li class="nav-item">
+                        <span class="nav-link text-white">logged in as  <%=currentUser.username%></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/logout">logout</a>
+                    </li>
+                    <%}%>
+        </ul>
+    </div>
+    </nav>
+    <div class="container">
+        <%if(error && error.length>0){%>
+            <h5 class="alert alert-danger text-center"><%=error%></h5>
+        <%}%>
+        <%if(success && success.length>0){%>
+            <h5 class="alert alert-success text-center"><%=success%></h3>
+        <%}%>
+    

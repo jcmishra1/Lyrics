@@ -1,0 +1,23 @@
+<% include ../partials/header%>
+
+
+<div class="container bg-info mt-1 pt-1">
+    <h1 class="w-50 mx-auto bg-light border border-secondary rounded text-center">New Lyrics Page</h1>
+    <div class="bg-light border border-secondary rounded px-2 py-2 mt-1 ">
+            <form class="w-50 mx-auto" method="POST" action="/blogs">
+                <div class="form-group">
+                    <label class="font-weight-bold">Title</label>
+                    <input class="form-control" type="text" name="ly[title]" placeholder="title">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">Lyrics</label>
+                    <textarea class="form-control" style="height:400px" name="ly[lyrics]"></textarea>
+                </div>
+                <button class="btn btn-primary">SUBMIT</button>
+            </form>
+    </div>
+       
+</div> 
+
+
+<% include ../partials/footer%>

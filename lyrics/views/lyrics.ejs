@@ -1,0 +1,21 @@
+<% include ./partials/header%>
+
+<div class="container mt-1 text-center">
+    <a class="btn btn-outline-primary w-50" href="/blogs/new">CREATE NEW BLOG</a>
+</div>
+<div class="container bg-info mt-1">
+        <% lyrics.forEach(ly=>{%>
+    <div class="bg-light border border-primary px-2 py-2 mt-1">
+            <span class="font-weight-normal badge font-italic">written by 
+                <%=ly.writtenBy.username%> on <%=ly.created.toDateString()%></span>
+        <div class="mt-1">
+            <h3 class="w-50 mx-auto mb-0 text-center">" <%=ly.title%> "</h3>
+            <hr class=" my-0 ">
+            <p class="bg-white"><pre><%-ly.lyrics.substring(0,50)%>...%></pre></p>
+            <a class="badge badge-primary font-weight-normal" href="/blogs/<%= ly._id%>">read more</a>
+        </div>
+    </div>
+    <% })%>   
+</div> 
+
+ <% include ./partials/footer%>
