@@ -62,6 +62,6 @@ const express = require('express'),
    res.render('loginpage.ejs');
 });
 
- app.listen(process.env.PORT || 3000,()=> {
+ app.listen(process.env.PORT || 3000,process.env.IP,()=> {
     console.log("connected to port 3000....");
  });
