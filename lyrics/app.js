@@ -14,11 +14,11 @@ const express = require('express'),
        flash=require("connect-flash")
        seedDB=require("./seeds");
 
-       var uri="mongodb+srv://jag2:jag2@cluster0-q8th7.mongodb.net/songLyrics"
-       mongoose.connect(uri,{useNewUrlParser:true});
+      //  var uri="mongodb+srv://jag2:jag2@cluster0-q8th7.mongodb.net/songLyrics"
+      //  mongoose.connect(uri,{useNewUrlParser:true});
        
 
-    //mongoose.connect("mongodb://localhost/songLyrics",{useNewUrlParser:true});
+    mongoose.connect(process.env.DATABASEURL,{useNewUrlParser:true});
 
 
  app=express();
