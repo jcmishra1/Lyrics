@@ -4,6 +4,7 @@
   "description": "",
   "main": "29GAME.js",
   "scripts": {
+    "start":"node 29GAME.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
